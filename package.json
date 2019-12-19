@@ -1,0 +1,54 @@
+{
+  "name": "hapi-starter-kit",
+  "version": "0.0.1",
+  "description": "Hapi Starter Kit",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onimenotsuki/hapi-starter-kit.git"
+  },
+  "keywords": [
+    "hapijs",
+    "hapi",
+    "javascript",
+    "js"
+  ],
+  "author": "Edgar Talledos <onimenotsuki@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onimenotsuki/hapi-starter-kit/issues"
+  },
+  "homepage": "https://github.com/onimenotsuki/hapi-starter-kit#readme",
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
