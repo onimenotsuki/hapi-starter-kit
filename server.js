@@ -3,6 +3,8 @@
 const Hapi = require('@hapi/hapi');
 const dotenv = require('dotenv');
 
+const routes = require('./api/routes');
+
 dotenv.config();
 
 const server = Hapi.server({
@@ -10,16 +12,15 @@ const server = Hapi.server({
   host: process.env.SERVER_HOST,
 });
 
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: () => 'Hello World',
-});
-
 const init = async () => {
-  await server.start();
+  try {
+    await server.register(routes);
+    await server.start();
 
-  console.log(`Server running at: ${server.info.uri}`);
+    console.log(`Server running at: ${server.info.uri}`);
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
 };
 
 process.on('unhandledRejection', err => {
